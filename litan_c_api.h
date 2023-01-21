@@ -2,7 +2,12 @@
 #define LTN_C_API_H
 #include <stdint.h>
 
-struct CApi {
+struct ltn_CObject {
+	void * ptr;
+	void(*deleter)(void *);
+};
+
+struct ltn_CApi {
 	void * core;
 
 	int64_t (*param_int)(uint64_t index, void * core);
